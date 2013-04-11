@@ -361,17 +361,17 @@
     [self addSubview:self.PageControl];
     
     //Build Skip Button
-    if (LanguageDirection == MYLanguageDirectionRightToLeft) {
-        self.SkipButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.PageControl.frame.origin.y, 80, self.PageControl.frame.size.height)];
-        self.PageControl.currentPage = panelViews.count - 1;
-    }
-    else {
-        self.SkipButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 80, self.PageControl.frame.origin.y, 80, self.PageControl.frame.size.height)];
-    }
+    // if (LanguageDirection == MYLanguageDirectionRightToLeft) {
+    //     self.SkipButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.PageControl.frame.origin.y, 80, self.PageControl.frame.size.height)];
+    //     self.PageControl.currentPage = panelViews.count - 1;
+    // }
+    // else {
+    //     self.SkipButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 80, self.PageControl.frame.origin.y, 80, self.PageControl.frame.size.height)];
+    // }
     
-    [self.SkipButton setTitle:@"Skip" forState:UIControlStateNormal];
-    [self.SkipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.SkipButton];
+    // [self.SkipButton setTitle:@"Skip" forState:UIControlStateNormal];
+    // [self.SkipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
+    // [self addSubview:self.SkipButton];
 }
 
 -(void)setContentScrollViewHeightForPanelIndex:(NSInteger)panelIndex animated:(BOOL)animated{
@@ -382,14 +382,14 @@
             self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
             self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
             
-            self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
+            // self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
         }];
     }
     else {
         self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
         
         self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
-        self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
+        // self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
         
     }
     
@@ -463,13 +463,13 @@
     }
 }
 
--(void)skipIntroduction{
-    if ([(id)delegate respondsToSelector:@selector(introductionDidFinishWithType:)]) {
-        [delegate introductionDidFinishWithType:MYFinishTypeSkipButton];
-    }
+// -(void)skipIntroduction{
+//     if ([(id)delegate respondsToSelector:@selector(introductionDidFinishWithType:)]) {
+//         [delegate introductionDidFinishWithType:MYFinishTypeSkipButton];
+//     }
     
-    [self hideWithFadeOutDuration:0.3];
-}
+//     [self hideWithFadeOutDuration:0.3];
+// }
 
 #pragma mark - UIScrollView Delegate
 
