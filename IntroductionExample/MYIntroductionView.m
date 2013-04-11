@@ -25,13 +25,13 @@
 
 #import "MYIntroductionView.h"
 
-#define DEFAULT_BACKGROUND_COLOR [UIColor colorWithWhite:0 alpha:0.9]
+#define DEFAULT_BACKGROUND_COLOR [UIColor whiteColor]
 #define HEADER_VIEW_HEIGHT 50
 #define PAGE_CONTROL_PADDING 2
 #define TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]
-#define TITLE_TEXT_COLOR [UIColor whiteColor]
+#define TITLE_TEXT_COLOR [UIColor colorWithRed:0.416 green:0.686 blue:0.333 alpha:1.000];
 #define DESCRIPTION_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]
-#define DESCRIPTION_TEXT_COLOR [UIColor whiteColor]
+#define DESCRIPTION_TEXT_COLOR [UIColor colorWithRed:0.659 green:0.659 blue:0.659 alpha:1.000]
 
 @implementation MYIntroductionView
 @synthesize delegate;
