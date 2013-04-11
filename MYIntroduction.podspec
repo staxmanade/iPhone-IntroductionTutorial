@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Matthew York" => "my3681@gmail.com" }
 
-  s.source       = { :git => "https://github.com/MatthewYork/iPhone-IntroductionTutorial.git", 
-                     :commit => "cd60cebb0f63fdbf94b89fe7ebbf6bffc0b67eeb" }
+  s.source       = { :git => "https://github.com/pinhao/iPhone-IntroductionTutorial.git" }
 
   s.platform = :ios, '5.0'
   s.requires_arc = true
