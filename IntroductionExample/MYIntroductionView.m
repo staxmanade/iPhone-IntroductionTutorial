@@ -186,7 +186,7 @@
 
 -(void)buildContentScrollViewWithFrame:(CGRect)frame{
 
-    self.ContentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.HeaderView.frame.origin.y + self.HeaderView.frame.size.height + 10, frame.size.width, 0)];
+    self.ContentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.HeaderView.frame.origin.y + self.HeaderView.frame.size.height + 10, frame.size.width, frame.size.height - 10 - self.HeaderView.frame.size.height)];
     self.ContentScrollView.pagingEnabled = YES;
     self.ContentScrollView.showsHorizontalScrollIndicator = NO;
     self.ContentScrollView.showsVerticalScrollIndicator = NO;
@@ -224,7 +224,7 @@
     [self makePanelVisibleAtIndex:0];
     
     //Dynamically sizes the content to fit the text content
-    [self setContentScrollViewHeightForPanelIndex:0 animated:NO];
+    // [self setContentScrollViewHeightForPanelIndex:0 animated:NO];
     
     //Add a view at the end. This is simply "something to scroll toward" on the final panel.
     [self appendCloseViewAtXIndex:&contentXIndex];
@@ -260,7 +260,7 @@
     self.PageControl.currentPage = panelViews.count -1;
     
     //Dynamically sizes the content to fit the text content
-    [self setContentScrollViewHeightForPanelIndex:Panels.count-1 animated:NO];
+    // [self setContentScrollViewHeightForPanelIndex:Panels.count-1 animated:NO];
     
     //Finally, resize the content size of the scrollview to account for all the new views added to it
     self.ContentScrollView.contentSize = CGSizeMake(contentXIndex, self.ContentScrollView.frame.size.height);
@@ -374,27 +374,24 @@
     // [self addSubview:self.SkipButton];
 }
 
--(void)setContentScrollViewHeightForPanelIndex:(NSInteger)panelIndex animated:(BOOL)animated{
-    CGFloat newPanelHeight = [panelViews[panelIndex] frame].size.height;
+// -(void)setContentScrollViewHeightForPanelIndex:(NSInteger)panelIndex animated:(BOOL)animated{
+    // CGFloat newPanelHeight = [panelViews[panelIndex] frame].size.height;
     
-    if (animated){
-        [UIView animateWithDuration:0.3 animations:^{
-            self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
-            // self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
-            
-            // self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
-        }];
-    }
-    else {
-        self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
-        
-       //  self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
-        // self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
-        
-    }
+    // if (animated){
+    //     [UIView animateWithDuration:0.3 animations:^{
+    //         self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
+    //         self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
+    //         self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
+    //     }];
+    // }
+    // else {
+    //     self.ContentScrollView.frame = CGRectMake(self.ContentScrollView.frame.origin.x, self.ContentScrollView.frame.origin.y, self.ContentScrollView.frame.size.width, newPanelHeight);
+    //     self.PageControl.frame = CGRectMake(self.PageControl.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.PageControl.frame.size.width, self.PageControl.frame.size.height);
+    //     self.SkipButton.frame = CGRectMake(self.SkipButton.frame.origin.x, (self.ContentScrollView.frame.origin.y + self.ContentScrollView.frame.size.height + PAGE_CONTROL_PADDING), self.SkipButton.frame.size.width, self.SkipButton.frame.size.height);
+    // }
     
-    self.ContentScrollView.contentSize = CGSizeMake(self.ContentScrollView.contentSize.width, newPanelHeight);
-}
+    // self.ContentScrollView.contentSize = CGSizeMake(self.ContentScrollView.contentSize.width, newPanelHeight);
+// }
 
 #pragma mark - Header Content
 
@@ -489,7 +486,7 @@
             self.PageControl.currentPage = self.CurrentPanelIndex;
             
             //Format and show new content
-            [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
+            // [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
             [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
             
             //Call Back, if applicable
@@ -515,7 +512,7 @@
             self.PageControl.currentPage = self.CurrentPanelIndex;
             
             //Format and show new content
-            [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
+            // [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
             [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
             
             //Call Back, if applicable
