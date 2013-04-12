@@ -222,7 +222,7 @@
     }
     
     
-    [self makePanelVisibleAtIndex:0];
+    // [self makePanelVisibleAtIndex:0];
     
     //Dynamically sizes the content to fit the text content
     // [self setContentScrollViewHeightForPanelIndex:0 animated:NO];
@@ -256,7 +256,7 @@
     }
     
     
-    [self makePanelVisibleAtIndex:panelViews.count-1];
+    // [self makePanelVisibleAtIndex:panelViews.count-1];
     self.CurrentPanelIndex = panelViews.count-1;
     self.PageControl.currentPage = panelViews.count -1;
     
@@ -435,32 +435,32 @@
     } completion:nil];
 }
 
--(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
-    if (LanguageDirection == MYLanguageDirectionLeftToRight) {
-        [UIView animateWithDuration:ANIMATION_DURATION animations:^{
-            for (int ii = 0; ii < panelViews.count; ii++) {
-                if (ii == panelIndex) {
-                    [panelViews[ii] setAlpha:1];
-                }
-                else {
-                    [panelViews[ii] setAlpha:0];
-                }
-            }
-        }];
-    }
-    else {
-        [UIView animateWithDuration:ANIMATION_DURATION animations:^{
-            for (int ii = panelViews.count-1; ii > 0; ii--) {
-                if (ii == panelIndex) {
-                    [panelViews[ii] setAlpha:1];
-                }
-                else {
-                    [panelViews[ii] setAlpha:0];
-                }
-            }
-        }];
-    }
-}
+// -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
+//     if (LanguageDirection == MYLanguageDirectionLeftToRight) {
+//         [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+//             for (int ii = 0; ii < panelViews.count; ii++) {
+//                 if (ii == panelIndex) {
+//                     [panelViews[ii] setAlpha:1];
+//                 }
+//                 else {
+//                     [panelViews[ii] setAlpha:0];
+//                 }
+//             }
+//         }];
+//     }
+//     else {
+//         [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+//             for (int ii = panelViews.count-1; ii > 0; ii--) {
+//                 if (ii == panelIndex) {
+//                     [panelViews[ii] setAlpha:1];
+//                 }
+//                 else {
+//                     [panelViews[ii] setAlpha:0];
+//                 }
+//             }
+//         }];
+//     }
+// }
 
 // -(void)skipIntroduction{
 //     if ([(id)delegate respondsToSelector:@selector(introductionDidFinishWithType:)]) {
@@ -489,7 +489,7 @@
             
             //Format and show new content
             // [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
-            [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
+            // [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
             
             //Call Back, if applicable
             if (LastPanelIndex != self.CurrentPanelIndex) { //Keeps from making the callback when just bouncing and not actually changing pages
@@ -515,7 +515,7 @@
             
             //Format and show new content
             // [self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
-            [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
+            // [self makePanelVisibleAtIndex:(NSInteger)self.CurrentPanelIndex];
             
             //Call Back, if applicable
             if (LastPanelIndex != self.CurrentPanelIndex) { //Keeps from making the callback when just bouncing and not actually changing pages
