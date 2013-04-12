@@ -32,6 +32,7 @@
 #define TITLE_TEXT_COLOR [UIColor colorWithRed:0.416 green:0.686 blue:0.333 alpha:1.000];
 #define DESCRIPTION_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]
 #define DESCRIPTION_TEXT_COLOR [UIColor colorWithRed:0.659 green:0.659 blue:0.659 alpha:1.000]
+#define ANIMATION_DURATION 0.2
 
 @implementation MYIntroductionView
 @synthesize delegate;
@@ -358,6 +359,7 @@
     self.PageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.frame.size.width - 184)/2, (self.frame.size.height - 36 + PAGE_CONTROL_PADDING), 184, 36)];
     self.PageControl.numberOfPages = Panels.count;
     self.PageControl.userInteractionEnabled = NO;
+    self.PageControl.
     [self addSubview:self.PageControl];
     
     //Build Skip Button
@@ -421,7 +423,7 @@
     [view addSubview:self];
     
     //Fade in
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:ANIMATION_DURATION animations:^{
         self.alpha = 1;
     }];
 }
@@ -435,7 +437,7 @@
 
 -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
     if (LanguageDirection == MYLanguageDirectionLeftToRight) {
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:ANIMATION_DURATION animations:^{
             for (int ii = 0; ii < panelViews.count; ii++) {
                 if (ii == panelIndex) {
                     [panelViews[ii] setAlpha:1];
@@ -447,7 +449,7 @@
         }];
     }
     else {
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:ANIMATION_DURATION animations:^{
             for (int ii = panelViews.count-1; ii > 0; ii--) {
                 if (ii == panelIndex) {
                     [panelViews[ii] setAlpha:1];
