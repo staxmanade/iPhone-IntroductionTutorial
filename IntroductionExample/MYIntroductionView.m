@@ -359,7 +359,6 @@
     self.PageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.frame.size.width - 184)/2, (self.frame.size.height - 36 + PAGE_CONTROL_PADDING), 184, 36)];
     self.PageControl.numberOfPages = Panels.count;
     self.PageControl.userInteractionEnabled = NO;
-    self.PageControl.
     [self addSubview:self.PageControl];
     
     //Build Skip Button
