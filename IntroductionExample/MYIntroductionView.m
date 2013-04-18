@@ -419,7 +419,9 @@
 -(void)showInView:(UIView *)view{
     //Add introduction view
     self.alpha = 0;
-    [view addSubview:self];
+    if ( [self isDescendantOfView:view] == NO) {
+            [view addSubview:self];
+    }
 
     [self showWithFadeInDuration:ANIMATION_DURATION];
 }
