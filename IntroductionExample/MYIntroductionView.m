@@ -420,9 +420,13 @@
     //Add introduction view
     self.alpha = 0;
     [view addSubview:self];
-    
+
+    [self showWithFadeInDuration:ANIMATION_DURATION];
+}
+
+-(void)showWithFadeInDuration:(CGFloat)duration{
     //Fade in
-    [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+    [UIView animateWithDuration:duration animations:^{
         self.alpha = 1;
     }];
 }
