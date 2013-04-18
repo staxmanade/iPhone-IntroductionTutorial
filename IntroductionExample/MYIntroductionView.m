@@ -419,6 +419,7 @@
 -(void)showInView:(UIView *)view{
     //Add introduction view
     self.alpha = 0;
+    [self scrollToBeginningAnimated:NO];
     if ( [self isDescendantOfView:view] == NO) {
             [view addSubview:self];
     }
@@ -438,6 +439,12 @@
     [UIView animateWithDuration:duration animations:^{
         self.alpha = 0;
     } completion:nil];
+}
+
+-(void)scrollToBeginningAnimated:(BOOL)animated
+{
+    [self.ContentScrollView setContentOffset:CGPointMake(0.0,0.0) animated:animated];
+    [self.PageControl setCurrentPage:0];
 }
 
 // -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
