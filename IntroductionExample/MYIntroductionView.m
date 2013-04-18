@@ -541,7 +541,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (LanguageDirection == MYLanguageDirectionLeftToRight) {
-        if (self.CurrentPanelIndex == (panelViews.count - 1)) {
+        if (scrollView.contentOffset.x/self.ContentScrollView.frame.size.width > panelViews.count - 1) {
             self.alpha = ((self.ContentScrollView.frame.size.width*panelViews.count)-self.ContentScrollView.contentOffset.x)/self.ContentScrollView.frame.size.width;
         }
     }
